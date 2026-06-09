@@ -1,0 +1,7 @@
+spring:
+  ai:
+    mcp:
+      client:
+        enabled: true
+        stdio:
+          servers-configuration: classpath:mcp-servers.json

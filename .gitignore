@@ -1,0 +1,38 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.iml
+*.iws
+*.ipr
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Backend
+target/
+tmp/
+.mvn/wrapper/maven-wrapper.jar
+
+# Local secrets and environment-specific config
+.env
+.env.*
+application-local.yml
+application-prod.yml
+mcp-servers.json
+
+# Generated files
+*.kryo
+*.pdf

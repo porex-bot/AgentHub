@@ -1,0 +1,102 @@
+import { Bot, FileText, HeartHandshake } from 'lucide-vue-next'
+
+export const chatApps = [
+  {
+    key: 'relationship',
+    name: '关系咨询助手',
+    category: '垂直咨询',
+    description: '情感沟通、关系分析和亲密关系建议。',
+    route: '/love',
+    endpoint: '/api/ai/agents/relationship/chat/stream',
+    requiresChatId: true,
+    placeholder: '说说你的关系问题...',
+    assistantLabel: '关系咨询助手',
+    icon: HeartHandshake,
+    accent: '#e11d48',
+    capabilities: ['关系分析', '沟通建议', '长期会话'],
+    suggestions: [
+      '分析这段聊天里对方的态度',
+      '第一次约会后怎么继续联系？',
+      '我和伴侣最近总吵架，怎么沟通？',
+    ],
+    theme: {
+      primary: '#e11d48',
+      primaryHover: '#be123c',
+      primaryLight: '#fff1f2',
+      assistantBg: '#fff1f2',
+      assistantColor: '#be123c',
+      assistantIcon: '#e11d48',
+    },
+  },
+  {
+    key: 'task',
+    name: '通用任务智能体',
+    category: '任务执行',
+    description: '拆解复杂目标，调用工具完成任务。',
+    route: '/task',
+    endpoint: '/api/ai/agents/task/chat/stream',
+    requiresChatId: true,
+    placeholder: '描述你想完成的任务...',
+    assistantLabel: '通用任务智能体',
+    icon: Bot,
+    accent: '#2563eb',
+    capabilities: ['任务拆解', '工具调用', '结果整理'],
+    suggestions: [
+      '帮我规划一个三天项目开发计划',
+      '搜索并整理一个技术主题',
+      '把复杂任务拆成可执行步骤',
+    ],
+    workflowSteps: [
+      { key: 'analyse', label: '分析任务', keywords: ['分析', '拆解', '计划'] },
+      { key: 'search', label: '检索资料', keywords: ['搜索', '检索', 'Search'] },
+      { key: 'tool', label: '调用工具', keywords: ['工具', '调用', 'Tool'] },
+      { key: 'result', label: '整理结果', keywords: ['整理', '总结', '完成'] },
+    ],
+    theme: {
+      primary: '#2563eb',
+      primaryHover: '#1d4ed8',
+      primaryLight: '#eff6ff',
+      assistantBg: '#ecfdf5',
+      assistantColor: '#047857',
+      assistantIcon: '#0f766e',
+    },
+  },
+  {
+    key: 'report',
+    name: '研究报告助手',
+    category: '资料研究',
+    description: '搜索资料、提炼要点并生成结构化报告。',
+    route: '/report',
+    endpoint: '/api/ai/agents/research/chat/stream',
+    requiresChatId: true,
+    placeholder: '输入研究主题...',
+    assistantLabel: '研究报告助手',
+    icon: FileText,
+    accent: '#0f766e',
+    capabilities: ['网页搜索', '资料整理', 'PDF 报告'],
+    suggestions: [
+      '研究 2026 年 AI Agent 产品趋势',
+      '搜索 Spring AI 的核心能力',
+      '调研一个创业方向的机会和风险',
+    ],
+    workflowSteps: [
+      { key: 'scope', label: '明确主题', keywords: ['研究目标', '主题', '范围'] },
+      { key: 'search', label: '搜索资料', keywords: ['搜索', '检索', 'Search'] },
+      { key: 'scrape', label: '抓取网页', keywords: ['抓取', '网页', 'Scrape'] },
+      { key: 'summary', label: '整理报告', keywords: ['报告', '整理', '总结'] },
+      { key: 'pdf', label: '生成 PDF', keywords: ['PDF', '生成文件'] },
+    ],
+    theme: {
+      primary: '#0f766e',
+      primaryHover: '#115e59',
+      primaryLight: '#ecfdf5',
+      assistantBg: '#f0fdfa',
+      assistantColor: '#0f766e',
+      assistantIcon: '#0f766e',
+    },
+  },
+]
+
+export function getAppConfig(routePath) {
+  return chatApps.find((app) => app.route === routePath) || null
+}
