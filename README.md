@@ -128,7 +128,6 @@ AgentHub-backend/src/main/resources/mcp-servers.example.json
 AgentHub-backend/src/main/resources/mcp-servers.json
 ```
 
-`mcp-servers.json` 已被 `.gitignore` 忽略，不应提交真实密钥。
 
 ## 本地启动
 
